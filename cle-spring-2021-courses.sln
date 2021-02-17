@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cle-spring-2021-courses", "cle-spring-2021-courses\cle-spring-2021-courses.csproj", "{AB1EBA38-313F-4CBB-9C89-FA4221423BC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cle-spring-2021-courses.Tests", "cle-spring-2021-courses.Tests\cle-spring-2021-courses.Tests.csproj", "{AFD6B23A-F22E-4C0B-9CE0-103F8DD3DA0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AB1EBA38-313F-4CBB-9C89-FA4221423BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB1EBA38-313F-4CBB-9C89-FA4221423BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB1EBA38-313F-4CBB-9C89-FA4221423BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD6B23A-F22E-4C0B-9CE0-103F8DD3DA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD6B23A-F22E-4C0B-9CE0-103F8DD3DA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD6B23A-F22E-4C0B-9CE0-103F8DD3DA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD6B23A-F22E-4C0B-9CE0-103F8DD3DA0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
