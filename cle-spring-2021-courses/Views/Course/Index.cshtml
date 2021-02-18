@@ -1,4 +1,4 @@
-﻿
+﻿@model cle_spring_2021_courses.Models.Course
 @{
     Layout = null;
 }
@@ -12,5 +12,7 @@
 </head>
 <body>
     <h1>Courses List</h1>
+    <h2>Name: @Model.Name</h2>
+    <p>Description: @Model.Description</p>
 </body>
 </html>
