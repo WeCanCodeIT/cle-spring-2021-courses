@@ -1,3 +1,5 @@
+using cle_spring_2021_courses.Models;
+using cle_spring_2021_courses.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +19,8 @@ namespace cle_spring_2021_courses
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<UniversityContext>();
+            services.AddScoped<IRepository<Course>, CourseRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
