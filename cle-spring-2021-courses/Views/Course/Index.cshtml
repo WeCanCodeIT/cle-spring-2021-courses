@@ -14,10 +14,10 @@
     <h1>Courses List</h1>
     @*<h2>ID: @Model.Id</h2>*@
     @*<h2>Name: @Model.Name @Model.Id</h2>
-    <p>Description: @Model.Description</p>*@
+        <p>Description: @Model.Description</p>*@
     <hr />
 
-    @foreach(var course in Model)
+    @foreach (var course in Model)
     {
         @*<p>ID: @course.Id</p>*@
         <p>Name: <a href="/Course/Details/@course.Id">@course.Name</a></p>
@@ -27,6 +27,10 @@
     <hr />
 
     <h2><a href="/Instructor/">List Instructors</a></h2>
+
+    <hr />
+
+    <h2><a href="/Student/">List Students</a></h2>
 
 </body>
 </html>
