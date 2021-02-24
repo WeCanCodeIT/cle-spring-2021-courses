@@ -30,5 +30,23 @@ namespace cle_spring_2021_courses.Controllers
 
             return View(course);
         }
+
+        public ViewResult Create()
+        {
+            return View(new Course());
+        }
+
+        [HttpPost]
+        public ViewResult Create(Course model)
+        {
+            
+            model.InstructorId = 2;
+
+            courseRepo.Create(model);
+
+            ViewBag.Result = "You have successfully saved your course.";
+
+            return View(model);
+        }
     }
 }

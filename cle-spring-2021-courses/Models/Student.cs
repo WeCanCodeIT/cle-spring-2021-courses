@@ -10,7 +10,6 @@ namespace cle_spring_2021_courses.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public virtual List<StudentCourse> StudentCourses { get; set; }
     }
 }

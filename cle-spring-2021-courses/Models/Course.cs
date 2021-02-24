@@ -9,7 +9,10 @@ namespace cle_spring_2021_courses.Models
     public class Course
     {
         public int Id { get; set; }
+
+        [Display(Name = "Course Name")]
         public string Name { get; set; }
+        [Display(Name = "Course Description")]
         public string Description { get; set; }
 
         [Display(Name = "Instructor")]
