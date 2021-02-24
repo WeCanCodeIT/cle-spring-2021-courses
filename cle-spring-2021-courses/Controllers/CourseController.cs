@@ -19,10 +19,16 @@ namespace cle_spring_2021_courses.Controllers
 
         public ViewResult Index()
         {
-            //Course course = new Course(1, "Intro to MVC", "All you need to know about MVC");
             var courseList = courseRepo.GetAll();
             
             return View(courseList);
+        }
+
+        public ViewResult Details(int id)
+        {
+            var course = courseRepo.GetById(id);
+
+            return View(course);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace cle_spring_2021_courses
             services.AddMvc();
             services.AddDbContext<UniversityContext>();
             services.AddScoped<IRepository<Course>, CourseRepository>();
+            services.AddScoped<IRepository<Instructor>, InstructorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

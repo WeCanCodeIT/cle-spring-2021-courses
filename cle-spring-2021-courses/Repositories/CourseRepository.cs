@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using cle_spring_2021_courses.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace cle_spring_2021_courses.Repositories
 {
@@ -39,8 +40,9 @@ namespace cle_spring_2021_courses.Repositories
 
         public Course GetById(int id)
         {
-
-            return _db.Courses.Find(id);
+            var course = _db.Courses.Find(id);
+            //var course = _db.Courses.Include()
+            return course;
 
             //return to the course based on the inputted id
             //return courses.Find(id);

@@ -19,10 +19,14 @@
 
     @foreach(var course in Model)
     {
-        <p>ID: @course.Id</p>
-        <p>Name: @course.Name</p>
-        <p>Description: @course.Description</p>
+        @*<p>ID: @course.Id</p>*@
+        <p>Name: <a href="/Course/Details/@course.Id">@course.Name</a></p>
+        @*<p>Description: @course.Description</p>*@
     }
+
+    <hr />
+
+    <h2><a href="/Instructor/">List Instructors</a></h2>
 
 </body>
 </html>

@@ -12,7 +12,7 @@ namespace cle_spring_2021_courses.Tests
 
         public CourseControllerTests()
         {
-            sut = new CourseController();
+            //sut = new CourseController();
         }
 
         [Fact]
