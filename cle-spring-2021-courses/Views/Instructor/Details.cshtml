@@ -1,4 +1,4 @@
-﻿@model cle_spring_2021_courses.Models.Course
+﻿@model cle_spring_2021_courses.Models.Instructor
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -8,18 +8,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Course Details</title>
+    <title>Instructor Details</title>
 </head>
 <body>
 
-    <h1>@Model.Name : @Model.Id</h1>
-    <p>@Model.Description</p>
-
-    <p><a href="/Instructor/Details/@Model.InstructorId">@Model.Instructor.Name</a></p>
+    <h1>@Model.Name</h1>
 
 </body>
 </html>
-
 
 @{
 }

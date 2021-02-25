@@ -21,5 +21,10 @@ namespace cle_spring_2021_courses.Controllers
         {
             return View(instructorRepo.GetAll());
         }
+
+        public ViewResult Details(int id)
+        {
+            return View(instructorRepo.GetById(id));
+        }
     }
 }
