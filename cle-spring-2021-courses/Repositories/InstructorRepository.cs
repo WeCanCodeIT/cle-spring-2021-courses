@@ -6,42 +6,42 @@ using System.Threading.Tasks;
 
 namespace cle_spring_2021_courses.Repositories
 {
-    public class InstructorRepository : IRepository<Instructor>
+    public class InstructorRepository : Repository<Instructor>
     {
-        private UniversityContext _db;
-        public InstructorRepository(UniversityContext db)
+        //private UniversityContext _db;
+        public InstructorRepository(UniversityContext db) : base(db)
         {
-            this._db = db;
+            //this._db = db;
         }
 
-        public void Create(Instructor obj)
-        {
-            _db.Instructors.Add(obj);
-            _db.SaveChanges();
-        }
+        //public void Create(Instructor obj)
+        //{
+        //    _db.Instructors.Add(obj);
+        //    _db.SaveChanges();
+        //}
 
-        public void Delete(Instructor obj)
-        {
-            _db.Instructors.Remove(obj);
-            _db.SaveChanges();
-        }
+        //public void Delete(Instructor obj)
+        //{
+        //    _db.Instructors.Remove(obj);
+        //    _db.SaveChanges();
+        //}
 
-        public IEnumerable<Instructor> GetAll()
-        {
-            return _db.Instructors.ToList();
-        }
+        //public IEnumerable<Instructor> GetAll()
+        //{
+        //    return _db.Instructors.ToList();
+        //}
 
-        public Instructor GetById(int id)
-        {
-            var instructor = _db.Instructors.Find(id);
+        //public Instructor GetById(int id)
+        //{
+        //    var instructor = _db.Instructors.Find(id);
 
-            return instructor;
-        }
+        //    return instructor;
+        //}
 
-        public void Update(Instructor obj)
-        {
-            _db.Instructors.Update(obj);
-            _db.SaveChanges();
-        }
+        //public void Update(Instructor obj)
+        //{
+        //    _db.Instructors.Update(obj);
+        //    _db.SaveChanges();
+        //}
     }
 }
