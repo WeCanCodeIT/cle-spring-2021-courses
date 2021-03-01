@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Feedback\" />
     <Folder Include="wwwroot\Images\" />
     <Folder Include="wwwroot\Scripts\" />
     <Folder Include="wwwroot\Styles\" />

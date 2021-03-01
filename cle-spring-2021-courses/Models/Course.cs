@@ -20,6 +20,7 @@ namespace cle_spring_2021_courses.Models
         public virtual Instructor Instructor { get; set; }
 
         public virtual List<StudentCourse> StudentCourses { get; set; }
+        public virtual List<Feedback> Reviews { get; set; }
 
         public Course()
         {

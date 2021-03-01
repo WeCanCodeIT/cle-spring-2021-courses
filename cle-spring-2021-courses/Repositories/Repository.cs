@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cle_spring_2021_courses.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,6 +33,11 @@ namespace cle_spring_2021_courses.Repositories
         public T GetById(int id)
         {
             return _db.Set<T>().Find(id);
+        }
+
+        public List<Feedback> GetReviewsByCourseId(int courseId)
+        {
+            return _db.Set<Feedback>().Where(f => f.CourseId == courseId).ToList();
         }
 
         public void Update(T obj)

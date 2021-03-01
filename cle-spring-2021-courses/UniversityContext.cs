@@ -14,6 +14,7 @@ namespace cle_spring_2021_courses
 
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<Feedback> Reviews { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -101,6 +102,30 @@ namespace cle_spring_2021_courses
                     StudentId = 2
                 }
             );
+
+            modelBuilder.Entity<Feedback>().HasData(
+                new Feedback()
+                {
+                    Id = 1,
+                    Comments = "This course was great.",
+                    StudentId = 1,
+                    CourseId = 2
+                },
+                new Feedback()
+                {
+                    Id = 2,
+                    Comments = "This course was great.",
+                    StudentId = 1,
+                    CourseId = 1
+                },
+                new Feedback()
+                {
+                    Id = 3,
+                    Comments = "This course was great.",
+                    StudentId = 2,
+                    CourseId = 1
+                }
+                );
 
         }
 
