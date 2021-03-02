@@ -24,7 +24,6 @@ namespace cle_spring_2021_courses.Tests
         public void Index_Returns_A_View()
         {
             // Arrange
-            //CourseController sut = new CourseController();
 
             //Act
 
@@ -77,6 +76,80 @@ namespace cle_spring_2021_courses.Tests
             //Assertion
             Assert.Equal(expectedCourse, result.Model);
         }
+
+        [Fact]
+        public void Create_Returns_A_View()
+        {
+            // Arrange
+
+            //Act
+
+            var result = sut.Create();
+
+            //Assert
+
+            Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public void Create_Adds_A_Model()
+        {
+            //Arrange
+            Course model = new Course() { Name = "Sample Course", Description = "Sample course that should be deleted later.", InstructorId = 1 };
+
+            //Act
+            var result = sut.Create(model);
+
+            //Assertion
+            Assert.Equal("You have successfully saved this course.", result.ViewData["Result"]);
+
+        }
+
+        [Theory]
+        [InlineData(1)]
+        public void Update_Returns_A_View(int id)
+        {
+            // Arrange
+            var courseToUpdate = new Course();
+            courseRepo.GetById(id).Returns(courseToUpdate);
+            //Act
+
+            var result = sut.Update(id);
+
+            //Assert
+
+            Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public void Update_Passes_Course_To_View()
+        {
+            // Arrange
+            var courseToUpdate = new Course();
+            courseRepo.GetById(1).Returns(courseToUpdate);
+            courseToUpdate.Description = "Update to description.";
+
+            // Act
+            var result = (ViewResult)sut.Update(courseToUpdate);
+
+            //Assertion
+            Assert.Equal("You have successfully updated this course.", result.ViewData["Result"]);
+        }
+
+        [Fact]
+        public void Delete_Course_Successfully()
+        {
+            // Arrange
+            int courseId = 1;
+            
+            // Act
+            var result = (ViewResult)sut.Delete(courseId);
+
+            //Assertion
+            Assert.IsType<RedirectToActionResult>(result);
+        }
+
+
 
     }
 }

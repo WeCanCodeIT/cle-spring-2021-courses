@@ -33,20 +33,46 @@ namespace cle_spring_2021_courses.Controllers
 
         public ViewResult Create()
         {
+            // TODO: retrieve list of instructors with PopulateAllInstructors()
+
+            // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
+
             return View(new Course());
         }
 
         [HttpPost]
         public ViewResult Create(Course model)
         {
-            
-            model.InstructorId = 2;
+            // TODO: populate ViewBag.Instructors with PopulateAllInstructors()
+
+            // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
 
             courseRepo.Create(model);
 
-            ViewBag.Result = "You have successfully saved your course.";
+            ViewBag.Result = "You have successfully saved this course.";
 
             return View(model);
+        }
+
+        public ViewResult HTMLFormExample()
+        {
+            // return the View without a model
+            return View();
+        }
+
+        public object Update(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Update(Course id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
