@@ -9,6 +9,7 @@ namespace cle_spring_2021_courses.Extensions
     public interface ISelectList
     {
         // Add template to retrieve all Instructors
+        List<Instructor> PopulateInstructorList();
 
         List<Feedback> GetReviewsByCourseId(int courseId);
     }

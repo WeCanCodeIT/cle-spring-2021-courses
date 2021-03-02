@@ -13,5 +13,6 @@ namespace cle_spring_2021_courses.Repositories
         void Create(T obj);
         void Update(T obj);
         void Delete(T obj);
+
     }
 }

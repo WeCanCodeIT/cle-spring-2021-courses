@@ -1,6 +1,7 @@
 ﻿using cle_spring_2021_courses.Models;
 using cle_spring_2021_courses.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,10 @@ namespace cle_spring_2021_courses.Controllers
         public ViewResult Create()
         {
             // TODO: retrieve list of instructors with PopulateAllInstructors()
+            var instructors = courseRepo.PopulateInstructorList();
 
             // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
+            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
 
             return View(new Course());
         }
@@ -44,8 +47,10 @@ namespace cle_spring_2021_courses.Controllers
         public ViewResult Create(Course model)
         {
             // TODO: populate ViewBag.Instructors with PopulateAllInstructors()
+            var instructors = courseRepo.PopulateInstructorList();
 
             // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
+            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
 
             courseRepo.Create(model);
 
@@ -60,19 +65,43 @@ namespace cle_spring_2021_courses.Controllers
             return View();
         }
 
-        public object Update(int id)
+        public ViewResult Update(int id)
         {
-            throw new NotImplementedException();
+            // TODO: populate ViewBag.Instructors with PopulateAllInstructors()
+            var instructors = courseRepo.PopulateInstructorList();
+
+            // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
+            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
+
+            var course = courseRepo.GetById(id);
+
+            return View(course);
         }
 
-        public object Update(Course id)
+        [HttpPost]
+        public ViewResult Update(Course model)
         {
-            throw new NotImplementedException();
+
+            // TODO: populate ViewBag.Instructors with PopulateAllInstructors()
+            var instructors = courseRepo.PopulateInstructorList();
+
+            // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
+            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
+
+            courseRepo.Update(model);
+
+            ViewBag.Result = "You have successfully updated this course.";
+
+            return View(model);
         }
 
-        public object Delete(int id)
+        public ActionResult Delete(int id)
         {
-            throw new NotImplementedException();
+            var course = courseRepo.GetById(id);
+
+            courseRepo.Delete(course);
+
+            return RedirectToAction("Index");
         }
     }
 }

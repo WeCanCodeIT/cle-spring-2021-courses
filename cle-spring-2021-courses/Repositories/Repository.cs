@@ -35,6 +35,10 @@ namespace cle_spring_2021_courses.Repositories
             return _db.Set<T>().Find(id);
         }
 
+        public List<Instructor> PopulateInstructorList()
+        {
+            return _db.Set<Instructor>().ToList();
+        }
         public List<Feedback> GetReviewsByCourseId(int courseId)
         {
             return _db.Set<Feedback>().Where(f => f.CourseId == courseId).ToList();

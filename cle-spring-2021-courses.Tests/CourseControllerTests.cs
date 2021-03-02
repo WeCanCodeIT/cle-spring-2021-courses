@@ -2,6 +2,7 @@ using cle_spring_2021_courses.Controllers;
 using cle_spring_2021_courses.Models;
 using cle_spring_2021_courses.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -81,7 +82,8 @@ namespace cle_spring_2021_courses.Tests
         public void Create_Returns_A_View()
         {
             // Arrange
-
+            sut.ViewBag.Instructors = new SelectList(courseRepo.PopulateInstructorList(), "", "");
+            
             //Act
 
             var result = sut.Create();
@@ -143,7 +145,7 @@ namespace cle_spring_2021_courses.Tests
             int courseId = 1;
             
             // Act
-            var result = (ViewResult)sut.Delete(courseId);
+            var result = sut.Delete(courseId);
 
             //Assertion
             Assert.IsType<RedirectToActionResult>(result);
