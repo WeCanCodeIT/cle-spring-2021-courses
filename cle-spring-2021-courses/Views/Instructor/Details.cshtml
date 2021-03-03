@@ -14,6 +14,21 @@
 
     <h1>@Model.Name</h1>
 
+    <hr />
+
+    <h2>Courses</h2>
+    <br />
+    <ul>
+        @foreach (var course in Model.Courses)
+        {
+            <li><a href="/Course/Details/@course.Id">@course.Name</a></li>
+        }
+    </ul>
+
+    <hr />
+
+    <a href="/Course/CreateByInstructorId/@Model.Id">Add Course to Instructor</a>
+
 </body>
 </html>
 

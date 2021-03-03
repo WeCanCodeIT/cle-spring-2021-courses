@@ -82,7 +82,6 @@ namespace cle_spring_2021_courses.Tests
         public void Create_Returns_A_View()
         {
             // Arrange
-            sut.ViewBag.Instructors = new SelectList(courseRepo.PopulateInstructorList(), "", "");
             
             //Act
 
@@ -107,16 +106,15 @@ namespace cle_spring_2021_courses.Tests
 
         }
 
-        [Theory]
-        [InlineData(1)]
-        public void Update_Returns_A_View(int id)
+        [Fact]
+        public void Update_Returns_A_View()
         {
             // Arrange
             var courseToUpdate = new Course();
-            courseRepo.GetById(id).Returns(courseToUpdate);
+            courseRepo.GetById(1).Returns(courseToUpdate);
             //Act
 
-            var result = sut.Update(id);
+            var result = sut.Update(1);
 
             //Assert
 

@@ -18,7 +18,7 @@
 
     @foreach(var instructor in Model)
     {
-        <h2>@instructor.Name</h2>
+        <h2><a href="/Instructor/Details/@instructor.Id">@instructor.Name</a></h2>
     }
 
 

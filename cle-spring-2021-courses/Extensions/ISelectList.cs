@@ -12,5 +12,7 @@ namespace cle_spring_2021_courses.Extensions
         List<Instructor> PopulateInstructorList();
 
         List<Feedback> GetReviewsByCourseId(int courseId);
+
+        Course GetCourseByName(string name);
     }
 }

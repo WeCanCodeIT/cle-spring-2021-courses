@@ -38,25 +38,46 @@ namespace cle_spring_2021_courses.Controllers
             var instructors = courseRepo.PopulateInstructorList();
 
             // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
-            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
+            ViewBag.Instructors = instructors;
 
             return View(new Course());
         }
 
         [HttpPost]
-        public ViewResult Create(Course model)
+        public ActionResult Create(Course model)
         {
             // TODO: populate ViewBag.Instructors with PopulateAllInstructors()
             var instructors = courseRepo.PopulateInstructorList();
 
             // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
-            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
+            ViewBag.Instructors = instructors;
 
-            courseRepo.Create(model);
+            if(courseRepo.GetCourseByName(model.Name) == null)
+            {
+                courseRepo.Create(model);
+                ViewBag.Result = "You have successfully saved this course.";
+            }
+            else
+            {
+                ViewBag.Error = "That course already exists and cannot be added.";
+            }
 
-            ViewBag.Result = "You have successfully saved this course.";
+            ModelState.Clear();
+            
+            //return View(model);
+            return View(); // return blank course once saved
+            //return RedirectToAction("Update", new { id = model.Id }); // redirect to Update
+        }
 
-            return View(model);
+        public ViewResult CreateByInstructorId(int id)
+        {
+            // TODO: populate ViewBag.Instructors with PopulateAllInstructors()
+            var instructors = courseRepo.PopulateInstructorList();
+
+            // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
+            ViewBag.Instructors = instructors;
+
+            return View(new Course() { InstructorId = id });
         }
 
         public ViewResult HTMLFormExample()
@@ -71,7 +92,7 @@ namespace cle_spring_2021_courses.Controllers
             var instructors = courseRepo.PopulateInstructorList();
 
             // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
-            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
+            ViewBag.Instructors = instructors;
 
             var course = courseRepo.GetById(id);
 
@@ -86,7 +107,7 @@ namespace cle_spring_2021_courses.Controllers
             var instructors = courseRepo.PopulateInstructorList();
 
             // TODO: set ViewBag.Instructors to a SelectList, mapping on {Id, Name}
-            ViewBag.Instructors = new SelectList(instructors, "Id", "Name");
+            ViewBag.Instructors = instructors;
 
             courseRepo.Update(model);
 

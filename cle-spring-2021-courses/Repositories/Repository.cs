@@ -37,11 +37,24 @@ namespace cle_spring_2021_courses.Repositories
 
         public List<Instructor> PopulateInstructorList()
         {
-            return _db.Set<Instructor>().ToList();
+            var instructors = _db.Set<Instructor>().ToList();
+
+            if(instructors.Count == 0)
+            {
+                return new List<Instructor>();
+            }
+
+            return instructors;
         }
         public List<Feedback> GetReviewsByCourseId(int courseId)
         {
             return _db.Set<Feedback>().Where(f => f.CourseId == courseId).ToList();
+        }
+
+        public Course GetCourseByName(string name)
+        {
+            var course = _db.Set<Course>().Where(c => c.Name == name).FirstOrDefault();
+            return course;
         }
 
         public void Update(T obj)
