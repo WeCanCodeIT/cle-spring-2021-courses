@@ -9,6 +9,7 @@ namespace cle_spring_2021_courses
 {
     public class UniversityContext : DbContext
     {
+        public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
 

@@ -52,7 +52,7 @@ namespace cle_spring_2021_courses.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Course model)
+        public ViewResult Create(Course model)
         {
             SetupInstructorViewBag();
 
@@ -113,7 +113,6 @@ namespace cle_spring_2021_courses.Controllers
 
             courseRepo.Delete(course);
 
-            //return RedirectToAction("Index");
             return RedirectToAction("Details", "Instructor", new { id = course.InstructorId });
         }
 

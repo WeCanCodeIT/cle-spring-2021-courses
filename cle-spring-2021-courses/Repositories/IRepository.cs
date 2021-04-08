@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cle_spring_2021_courses.Repositories
 {
-    public interface IRepository<T> : ISelectList where T : class
+    public interface IRepository<T> : ISelectList, IAccount where T : class
     {
         IEnumerable<T> GetAll();
         T GetById(int id);

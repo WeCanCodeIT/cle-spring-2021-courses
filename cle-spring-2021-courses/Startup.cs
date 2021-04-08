@@ -18,12 +18,20 @@ namespace cle_spring_2021_courses
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             services.AddMvc();
+            
             services.AddDbContext<UniversityContext>();
             //services.AddScoped<IRepository<Course>, CourseRepository>();
             //services.AddScoped<IRepository<Instructor>, InstructorRepository>();
             //services.AddScoped<IRepository<Student>, StudentRespository>();
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<Course>), typeof(Repository<Course>));
+            services.AddScoped(typeof(IRepository<Instructor>), typeof(Repository<Instructor>));
+            services.AddScoped(typeof(IRepository<Student>), typeof(Repository<Student>));
+            services.AddScoped(typeof(IRepository<User>), typeof(Repository<User>));
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +45,8 @@ namespace cle_spring_2021_courses
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

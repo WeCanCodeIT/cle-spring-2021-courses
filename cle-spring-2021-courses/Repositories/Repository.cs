@@ -1,4 +1,5 @@
-﻿using cle_spring_2021_courses.Models;
+﻿using cle_spring_2021_courses.Extensions;
+using cle_spring_2021_courses.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,21 @@ namespace cle_spring_2021_courses.Repositories
         {
             _db.Set<T>().Update(obj);
             _db.SaveChanges();
+        }
+
+        public LoginResult CheckLogin(string username, string password)
+        {
+            var user = _db.Set<User>().Where(u => u.Username == username && u.Password == Helpers.Helper.EncryptPassword(password)).FirstOrDefault();
+
+            if(user == null)
+            {
+                return new LoginResult() { Result = false, Message = "No such user could be found.", User = null };
+            }
+            else
+            {
+                return new LoginResult() { Result = true, Message = "", User = user };
+            }
+
         }
     }
 }
